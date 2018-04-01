@@ -1,0 +1,25 @@
+
+<div class="login">
+  <%= form_for @changeset, authentication_path(@conn, :log), fn f -> %>
+
+  <%= if f.errors != [] do %>
+   <div class="alert alert-danger">
+     <p>Oops, something went wrong! Please check the errors below:</p>
+   </div>
+ <% end %>
+
+	<h1>Login</h1>
+    <form method="post">
+    	<!-- <input type="text" name="u" placeholder="Username" required="required" /> -->
+      <%= text_input f, :username, autofocus: "on", placeholder: "Username" %>
+    <!--    <input type="password" name="p" placeholder="Password" required="required" /> /> -->
+    <%= password_input f, :password,  autocomplete: "off", placeholder: "Password" %>
+
+    <!--   <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button> -->
+    <%= submit "Login", class: "btn btn-primary" %>
+        <ul class="nav nav-pills pull-right">
+          <li><a href="/register">Register</a></li>
+        </ul>
+    </form>
+    <% end %>
+</div>

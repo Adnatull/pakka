@@ -1,0 +1,88 @@
+  <%= if logged_in?(@conn) do %>
+    <center> <h2 class="btn btn-secondary">Welcome to your profile</h2> </center>
+    <center> <h2 class="btn btn-secondary">  <a href="/editprofile">Edit your profile</a></h2>  </center>
+
+
+    <ul>
+
+      <li>
+        <strong>Username:</strong>
+        <%= current_user(@conn).username %>
+      </li>
+
+      <li>
+        <strong>Email:</strong>
+        <%= current_user(@conn).email %>
+      </li>
+
+      <li>
+        <strong>Password:</strong>
+        <%= current_user(@conn).password %>
+      </li>
+
+      <li>
+        <strong>Firstname:</strong>
+        <%= current_user(@conn).firstname %>
+      </li>
+
+      <li>
+        <strong>Lastname:</strong>
+        <%= current_user(@conn).lastname %>
+      </li>
+
+      <li>
+        <strong>Gender:</strong>
+        <%= current_user(@conn).gender %>
+      </li>
+
+      <li>
+        <strong>Birth:</strong>
+        <%= current_user(@conn).birth %>
+      </li>
+
+      <li>
+        <strong>Mobile:</strong>
+        <%= current_user(@conn).mobile %>
+      </li>
+
+      <li>
+        <strong>Address:</strong>
+        <%= current_user(@conn).address %>
+      </li>
+
+      <li>
+        <strong>Postal:</strong>
+        <%= current_user(@conn).postal %>
+      </li>
+
+      <li>
+        <strong>Country:</strong>
+        <%= current_user(@conn).country %>
+      </li>
+
+      <li>
+        <strong>Profilepic:</strong>
+        <%= current_user(@conn).profilepic %>
+      </li>
+
+      <li>
+        <strong>Profession:</strong>
+        <%= current_user(@conn).profession %>
+      </li>
+
+      <li>
+        <strong>Nationalid:</strong>
+        <%= current_user(@conn).nationalID %>
+      </li>
+
+    </ul>
+
+
+
+    <span><a href="/home">Back</a></span>
+
+
+
+  <% else %>
+    <center> <h2 class="btn btn-secondary">You are not authorized to see this page.</h2> </center>
+  <% end %>

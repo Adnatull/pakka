@@ -1,0 +1,56 @@
+<div class="login1">
+	<h1 style="color:White;">Register</h1>
+	<%= form_for @changeset, authentication_path(@conn, :signup), fn f -> %>
+	<%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+    <form method="post">
+<!--    	<input type="text" name="u" placeholder="Username" required="required" />
+    <input type="email" name="u" placeholder="Email" required="required" />
+      <input type="text" name="u" placeholder="Full Name" required="required" />
+      <input type="text" name="u" placeholder="Phone"  />
+      <label style="color:Gray;" for="gender">Gender: </label>
+      <select name="Gender"   name="u" required="required">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      <br/>
+      <label style="color:Gray;" for="birth">Birth: </label>
+      <input type="date" name="u" placeholder="Birth" required="required" />
+
+      <input type="password" name="p" placeholder="Password" required="required" />
+
+      <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+//-->
+			<%= text_input f, :username, autofocus: "on", placeholder: "Username" %>
+			<%= error_tag f, :username %>
+			<%= text_input f, :email, autofocus: "on", placeholder: "Email" %>
+			<%= error_tag f, :email %>
+			<!-- 	<%= text_input f, :fullname, autofocus: "on", placeholder: "Full Name" %>
+			<%= text_input f, :phone, autofocus: "on", placeholder: "Phone" %>
+//-->
+		<select id="gender" name="user[gender]">
+			<option value="">Gender</option>
+			<option value="Male">Male</option>
+			<option value="Female">Female</option>
+		</select>
+		<br>
+		<%= error_tag f, :gender %>
+			<label style="color:White;">
+    		Date of Birth: <%= date_input f, :birth, autofocus: "on", placeholder: "Date of Birth" %>
+  		</label>
+			<%= error_tag f, :birth %>
+
+			<%= password_input f, :password, autofocus: "on", placeholder: "Password" %>
+			<%= error_tag f, :password %>
+			<%= password_input f, :password_confirmation, autofocus: "on", placeholder: "Confirm Password" %>
+			<%= error_tag f, :password_confirmation %>
+			<%= submit "Register", class: "btn btn-primary" %>
+      <ul class="nav nav-pills pull-right">
+          <li><a href="/">Log in</a></li>
+      </ul>
+    </form>
+		<% end %>
+</div>

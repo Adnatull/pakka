@@ -1,0 +1,5 @@
+  <%= if logged_in?(@conn) do %>
+<center> <h2 class="btn btn-secondary">Edit your profile</h2> </center>
+<% else %>
+  <center> <h2 class="btn btn-secondary">You are not authorized to see this page.</h2> </center>
+<% end %>

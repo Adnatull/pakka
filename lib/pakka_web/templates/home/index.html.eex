@@ -1,0 +1,4 @@
+<center> <h2 class="btn btn-secondary">Welcome</h2> </center>
+<%= if logged_in?(@conn) do %>
+  <%= link "profile", to: home_path(@conn, :profile), class: "btn btn-secondary" %>
+<% end %>

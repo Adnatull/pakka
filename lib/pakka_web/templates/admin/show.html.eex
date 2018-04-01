@@ -1,0 +1,78 @@
+<h2>Show Admin</h2>
+
+<ul>
+
+  <li>
+    <strong>Username:</strong>
+    <%= @admin.username %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @admin.email %>
+  </li>
+
+  <li>
+    <strong>Password:</strong>
+    <%= @admin.password %>
+  </li>
+
+  <li>
+    <strong>Firstname:</strong>
+    <%= @admin.firstname %>
+  </li>
+
+  <li>
+    <strong>Lastname:</strong>
+    <%= @admin.lastname %>
+  </li>
+
+  <li>
+    <strong>Gender:</strong>
+    <%= @admin.gender %>
+  </li>
+
+  <li>
+    <strong>Birth:</strong>
+    <%= @admin.birth %>
+  </li>
+
+  <li>
+    <strong>Mobile:</strong>
+    <%= @admin.mobile %>
+  </li>
+
+  <li>
+    <strong>Address:</strong>
+    <%= @admin.address %>
+  </li>
+
+  <li>
+    <strong>Postal:</strong>
+    <%= @admin.postal %>
+  </li>
+
+  <li>
+    <strong>Country:</strong>
+    <%= @admin.country %>
+  </li>
+
+  <li>
+    <strong>Profilepic:</strong>
+    <%= @admin.profilepic %>
+  </li>
+
+  <li>
+    <strong>Profession:</strong>
+    <%= @admin.profession %>
+  </li>
+
+  <li>
+    <strong>Nationalid:</strong>
+    <%= @admin.nationalID %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: admin_path(@conn, :edit, @admin) %></span>
+<span><%= link "Back", to: admin_path(@conn, :index) %></span>
