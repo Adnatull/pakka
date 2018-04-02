@@ -89,7 +89,7 @@ defmodule Pakka.Accounts do
 
   def update_user(%User{} = user, attrs) do
     user
-    |> User.changeset(attrs)
+    |> User.edit_check(attrs)
     |> Repo.update()
   end
 

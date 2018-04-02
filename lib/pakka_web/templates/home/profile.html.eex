@@ -5,6 +5,8 @@
 
     <ul>
 
+
+
       <li>
         <strong>Username:</strong>
         <%= current_user(@conn).username %>
@@ -60,10 +62,6 @@
         <%= current_user(@conn).country %>
       </li>
 
-      <li>
-        <strong>Profilepic:</strong>
-        <%= current_user(@conn).profilepic %>
-      </li>
 
       <li>
         <strong>Profession:</strong>

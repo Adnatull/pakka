@@ -17,8 +17,28 @@ defmodule PakkaWeb.HomeController do
       |> redirect(to: "/home")
   end
 
-  def editprofile(conn, params) do
-      render(conn, "edit.html")
+#%{"id" => id}
+
+  def editprofile(conn, _user) do
+    changeset = Accounts.change_user(%User{})
+    render(conn, "edit.html", changeset: changeset)
+  end
+
+  def profileupdate(conn, %{"user" => user_params}) do
+    IO.inspect(user_params)
+    id = user_params["id"]
+    IO.puts(id)
+
+    user = Accounts.get_user!(id)
+    case Accounts.update_user(user, user_params) do
+      {:ok, user} ->
+        conn
+        |> put_flash(:info, "user updated successfully.")
+        |> redirect(to: "/profile")
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "edit.html", changeset: changeset)
+    end
+
   end
 
   def profile(conn, _) do

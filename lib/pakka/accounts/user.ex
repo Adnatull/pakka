@@ -39,6 +39,17 @@ defmodule Pakka.Accounts.User do
     |> validate_length(:username, min: 5)
   end
 
+  def edit_check(user, attrs) do
+    user
+    |> cast(attrs, [:username, :email, :password, :firstname, :lastname, :gender, :birth, :mobile, :address, :postal, :country, :profession, :nationalID])
+    |> validate_required([:username, :email, :password, :firstname, :lastname, :gender, :birth, :mobile, :address, :postal, :country, :profession, :nationalID])
+    |> validate_format(:email, ~r/@/)
+    |> validate_length(:password, min: 6)
+    |> validate_confirmation(:password)
+    |> unique_constraint(:username)
+    |> unique_constraint(:email)
+    |> validate_length(:username, min: 5)
+  end
 
     # Check if input credentials for login is okay
     def check_login(user, attrs) do

@@ -26,6 +26,8 @@ defmodule PakkaWeb.Router do
     get "/delete", HomeController, :delete
     get "/profile", HomeController, :profile
     get "/editprofile", HomeController, :editprofile
+    post "/profileupdate", HomeController, :profileupdate
+    put "/profileupdate", HomeController, :profileupdate
 
     resources "/admins", AdminController
 
