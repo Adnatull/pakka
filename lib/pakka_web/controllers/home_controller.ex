@@ -4,6 +4,7 @@ defmodule PakkaWeb.HomeController do
   alias Pakka.Accounts
   alias Pakka.Accounts.User
   import Plug.Conn
+  alias Pakka.Repo
 
   def index(conn, _params) do
   #  changeset = Accounts.change_user(%User{})
@@ -25,14 +26,18 @@ defmodule PakkaWeb.HomeController do
   end
 
   def profileupdate(conn, %{"user" => user_params}) do
-    IO.inspect(user_params)
-    id = user_params["id"]
-    IO.puts(id)
+  #  IO.inspect(user_params)
+   # id = user_params["id"]
+   # IO.puts(id)
 
-    user = Accounts.get_user!(id)
+    id = Plug.Conn.get_session(conn, :current_user)
+    user = Repo.get!(User, id)
+
+    #user = Accounts.get_user!(id)
     case Accounts.update_user(user, user_params) do
       {:ok, user} ->
         conn
+        |> put_session(:current_user, user.id)
         |> put_flash(:info, "user updated successfully.")
         |> redirect(to: "/profile")
       {:error, %Ecto.Changeset{} = changeset} ->

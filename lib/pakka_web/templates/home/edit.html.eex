@@ -6,14 +6,12 @@
   <%= form_for @changeset, home_path(@conn, :profileupdate), fn f -> %>
 
     <form method="post">
-      <label> Username: </labe>
-        <%= current_user(@conn).username %>
+      
+
+      <label> Username: </label>
+      <%= text_input f, :username, autofocus: "on", placeholder: "username", value: current_user(@conn).username %>
+      <%= error_tag f, :email %>
       <br>
-      <%= hidden_input f, :id, autofocus: "on", placeholder: "id", value: current_user(@conn).id %>
-
-      <%= hidden_input f, :username, autofocus: "on", placeholder: "username", value: current_user(@conn).username %>
-
-
 
       <label> Email: </label>
       <%= text_input f, :email, autofocus: "on", placeholder: "Email", value: current_user(@conn).email %>
